@@ -7,13 +7,13 @@ import org.openqa.selenium.support.FindBy;
 public class HeaderComponent extends Components {
 
     @FindBy(xpath = "//a[@class='account' and contains(@href, 'controller=my-account')]")
-    public WebElement profileName;
+    private WebElement profileName;
 
     @FindBy(className = "logout")
-    public WebElement sigOutButton;
+    private WebElement sigOutButton;
 
     @FindBy(className = "login")
-    public WebElement signInButton;
+    private WebElement signInButton;
 
     public HeaderComponent(WebDriver driver) {
         super(driver);

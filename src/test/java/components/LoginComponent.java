@@ -11,16 +11,16 @@ import utils.Constants;
 public class LoginComponent {
 
     @FindBy(id = "email")
-    public WebElement emailField;
+    private WebElement emailField;
 
     @FindBy(id = "passwd")
-    public WebElement passwordField;
+    private WebElement passwordField;
 
     @FindBy(id = "SubmitLogin")
-    public WebElement signInButton;
+    private WebElement signInButton;
 
     @FindBy(xpath = "//div[@class='alert alert-danger']")
-    public WebElement invalidEmailOrPasswordError;
+    private WebElement invalidEmailOrPasswordError;
 
     private final WebDriver driver;
     private WebDriverWait wait;
