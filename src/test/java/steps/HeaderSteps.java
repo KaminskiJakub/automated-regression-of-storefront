@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class HeaderSteps {
 
     HeaderComponent headerComponent;
+    private LoginSteps loginSteps;
     private final WebDriver driver;
 
     public HeaderSteps(CommonStepDefs commonStepDefs) {
@@ -20,11 +21,13 @@ public class HeaderSteps {
         headerComponent.clickSignOutButton();
     }
 
-    public void checkProfileName(String profileName) {
+    public HeaderSteps checkProfileName(String profileName) {
         assertEquals(headerComponent.getProfileNameFromHeader(), profileName);
+        return this;
     }
 
-    public void goToSignInSection() {
+    public LoginSteps goToSignInSection() {
         headerComponent.clickSignInButton();
+        return loginSteps;
     }
 }

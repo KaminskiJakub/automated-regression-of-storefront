@@ -18,20 +18,28 @@ public class LoginSteps {
     }
 
     public void signIn(String email, String password) {
-        typeInEmailAndPasswordToRequiredFields(email, password);
-        loginComponent.clickSubmitButton();
+        typeInEmailAndPasswordToRequiredFields(email, password)
+                .submitCredentials();
     }
 
-    public void checkIfSignButtonIsDisabled() {
+    public LoginSteps checkIfSignButtonIsDisabled() {
         assertFalse(loginComponent.checkIfSubmitButtonIsEnabled());
+        return this;
     }
 
-    public void checkIfErrorMessageIsPresent() {
+    public LoginSteps checkIfErrorMessageIsPresent() {
         assertTrue(loginComponent.isErrorTextDisplayed());
+        return this;
     }
 
-    private void typeInEmailAndPasswordToRequiredFields(String email, String password) {
+    private LoginSteps typeInEmailAndPasswordToRequiredFields(String email, String password) {
         loginComponent.typeEmailAddress(email);
         loginComponent.typePassword(password);
+        return this;
+    }
+
+    private LoginSteps submitCredentials() {
+        loginComponent.clickSubmitButton();
+        return this;
     }
 }
